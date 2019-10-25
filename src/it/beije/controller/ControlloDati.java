@@ -8,11 +8,11 @@ public static String controlloTel(String telefono) {
 	{
 	if (telefono.charAt(0)=='+'||telefono.charAt(0)=='3')
 	{
-		for (int i=0; i<telefono.length();i++) {
+		for (int i=1; i<telefono.length();i++) {
 			for (char c='0'; c<='9';c++) {
 				char temp=telefono.charAt(i);
 				if (temp=='+') count++;
-				if (temp>'9' && temp!=' ')
+				if (temp>'9' && temp!=' ' && temp!='+')
 				{
 					return null;
 				}

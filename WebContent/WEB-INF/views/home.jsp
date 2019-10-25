@@ -20,7 +20,7 @@
       <a class="navbar-brand" href="#">BeijeConsulting</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="login2.jsp">Log In</a></li>
+      <li class="active"><a href="home">Log In</a></li>
     </ul>
   </div>
 </nav>
