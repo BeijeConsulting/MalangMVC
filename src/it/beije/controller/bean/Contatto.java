@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "rubrica")
+@Table(name = "utenti")
 public class Contatto {
 	
 	@Id
@@ -22,8 +22,8 @@ public class Contatto {
 	@Column(name="nome")
 	private String nome;
 	
-	@Column(name="telefono")
-	private String telefono;
+//	@Column(name="telefono")
+//	private String telefono;
 	
 	@Column(name="email")
 	private String email;
@@ -49,12 +49,12 @@ public class Contatto {
 		this.nome = nome;
 	}
 	
-	public String getTelefono() {
-		return telefono;
-	}
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
+//	public String getTelefono() {
+//		return telefono;
+//	}
+//	public void setTelefono(String telefono) {
+//		this.telefono = telefono;
+//	}
 	
 	public String getEmail() {
 		return email;
@@ -68,7 +68,6 @@ public class Contatto {
 		StringBuilder builder = new StringBuilder();
 		builder.append("cognome : ").append(cognome).append('\n');
 		builder.append("nome : ").append(nome).append('\n');
-		builder.append("telefono : ").append(telefono).append('\n');
 		builder.append("email : ").append(email).append('\n');
 		return builder.toString();
 	}
