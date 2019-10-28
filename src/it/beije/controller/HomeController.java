@@ -18,7 +18,6 @@ public class HomeController {
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(HttpServletRequest request) {
 		System.out.println("index Page Requested : " + request.getRequestURI());
-
 		return "index";
 	}
 
