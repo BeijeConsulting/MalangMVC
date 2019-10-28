@@ -11,7 +11,6 @@
 nome : ${contatto.nome}<br>
 cognome : ${contatto.cognome}<br>
 email : ${contatto.email}<br>
-telefono : ${contatto.telefono}<br>
 
 </body>
 </html>
