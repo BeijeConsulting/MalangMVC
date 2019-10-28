@@ -21,9 +21,9 @@ public class HomeController {
 
 		return "index";
 	}
-
+	// Local, Model, request, response  sono i 4 parametri utilizzabili in homepage 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String homepage(Locale locale, Model model) {
+	public String homepage(Locale locale, Model model) { // model serve per trasportare il data dal controller al view
 		System.out.println("Home Page Requested, country = " + locale.getCountry());
 		System.out.println("Home Page Requested, language = " + locale.getLanguage());
 		Date date = new Date();
@@ -32,7 +32,7 @@ public class HomeController {
 
 		model.addAttribute("serverTime", dataFormattato);
 
-		return "home";
+		return "home"; // home qui è la pagina jsp che deve essere mostrata
 	}
 
 }
