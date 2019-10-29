@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ page import="it.beije.controller.bean.Assignment" %>
 <!DOCTYPE html>
-<jsp:useBean id="user" class="it.beije.controller.bean.Utente" scope="session" />
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -24,11 +25,25 @@
   </div>
 </nav>
 <center>
-LE ASSEGNAZIONI:<br>
-<form action="computerdot" method="post">
-ID UTENTE: <input type="text" name ="param_id"><br>
-<input type="submit" value="MOSTRA"><br>
-</form>
+<table>
+<c:forEach items="${list}" var="temp">
+    <tr><td>ID ASSEGNAZIONE:</td><td>${temp.idusers_computer}</td></tr>
+    <tr><td>ID UTENTE:</td><td>${temp.id_utente}</td></tr>
+    <tr><td>ID COMPUTER:</td><td>${temp.id_computer}</td></tr>
+    <tr><td>CONSEGNA:</td><td>${temp.consegna}</td></tr>
+    <tr><td>RESTITUZIONE:</td><td>${temp.restituzione}</td></tr>
+    <tr><td>---------------------------</td></tr>
+</c:forEach>
+</table>
+Computer: <br>
+Modello: ${pc.modello }<br>
+Marca: ${pc.marca }<br>
+CPU: ${pc.cpu } <br>
+RAM: ${pc.ram } <br>
+HD: ${pc._HD} <br>
+S/N: ${pc._SN } <br>
+Note: ${pc.note } <br>
+S.O: ${pc._SO }<br>
 </center>
 </body>
 </html>

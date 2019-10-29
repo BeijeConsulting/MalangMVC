@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<jsp:useBean id="user" class="it.beije.controller.bean.Utente" scope="session" />
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -24,11 +24,15 @@
   </div>
 </nav>
 <center>
-LE ASSEGNAZIONI:<br>
-<form action="computerdot" method="post">
-ID UTENTE: <input type="text" name ="param_id"><br>
-<input type="submit" value="MOSTRA"><br>
-</form>
+<table>
+<c:forEach items="${user}" var="temp">
+	<tr><td>ID: ${temp.idusers }</td></tr>
+    <tr><td>Cognome: ${temp.cognome }</td></tr>
+	<tr><td>Nome: ${temp.nome }</td></tr>
+	<tr><td>Email: ${temp.email }</td></tr>
+    <tr><td>---------------------------</td></tr>
+</c:forEach>
+</table>
 </center>
 </body>
 </html>

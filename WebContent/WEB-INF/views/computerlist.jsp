@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ page import="it.beije.controller.bean.Assignment" %>
 <!DOCTYPE html>
-<jsp:useBean id="user" class="it.beije.controller.bean.Utente" scope="session" />
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -24,12 +25,20 @@
   </div>
 </nav>
 <center>
-COMPUTER IN DOTAZIONE:<br>
-ID ASSEGNAZIONE: ${assignment.idusers_computer}<br>
-ID UTENTE: ${assignment.id_utente}<br>
-ID COMPUTER: ${assignment.id_computer}<br>
-DATA CONSEGNA: ${assignment.consegna}<br>
-DATA RESTITUZIONE: ${assignment.restituzione}<br><br>
+<table>
+<c:forEach items="${list}" var="temp">
+    <tr><td>ID ASSEGNAZIONE:</td><td>${temp.idusers_computer}</td></tr>
+    <tr><td>ID UTENTE:</td><td>${temp.id_utente}</td></tr>
+    <tr><td>ID COMPUTER:</td><td>${temp.id_computer}</td></tr>
+    <tr><td>CONSEGNA:</td><td>${temp.consegna}</td></tr>
+    <tr><td>RESTITUZIONE:</td><td>${temp.restituzione}</td></tr>
+    <tr><td>---------------------------</td></tr>
+</c:forEach>
+</table>
+Utente: <br>
+Cognome: ${user.cognome }<br>
+Nome: ${user.nome }<br>
+email: ${user.email }<br>
 </center>
 </body>
 </html>

@@ -28,6 +28,18 @@ public class Computer {
 	public void setId_computer(int id_computer) {
 		this.id_computer = id_computer;
 	}
+	
+	@OneToMany
+	@JoinColumn(name = "id_computer")
+	private List<Assignment> utenti;
+
+	public List<Assignment> getUtenti() {
+		return utenti;
+	}
+
+	public void setUtenti(List<Assignment> utenti) {
+		this.utenti = utenti;
+	}
 
 	@Column(name="modello")
 	private String modello;

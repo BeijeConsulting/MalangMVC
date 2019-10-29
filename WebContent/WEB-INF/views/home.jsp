@@ -36,9 +36,19 @@ ASSEGNA COMPUTER: <br>
 <form action="newassignment" method="get">
 	<input type="submit" value="ASSEGNA">
 </form>
-COMPUTER IN DOTAZIONE:<br>
+LE ASSEGNAZIONI:<br>
 <form action="computerdot" method="get">
 	<input type="submit" value="MOSTRA">
+</form>
+STORICO COMPUTER:<br>
+<form action="storico" method="get">
+	<input type="submit" value="MOSTRA">
+</form> <br><br><br><br>
+<form action="allpc" method="get">
+	<input type="submit" value="ALL PC">
+</form> <br>
+<form action="alluser" method="get">
+	<input type="submit" value="ALL USER">
 </form>
 </center>
 </body>

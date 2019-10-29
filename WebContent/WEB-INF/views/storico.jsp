@@ -24,9 +24,9 @@
   </div>
 </nav>
 <center>
-LE ASSEGNAZIONI:<br>
-<form action="computerdot" method="post">
-ID UTENTE: <input type="text" name ="param_id"><br>
+STORICO:<br>
+<form action="storico" method="post">
+ID COMPUTER: <input type="text" name ="param_id"><br>
 <input type="submit" value="MOSTRA"><br>
 </form>
 </center>
