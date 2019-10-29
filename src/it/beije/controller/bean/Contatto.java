@@ -23,6 +23,14 @@ public class Contatto {
     Set<UtenteComputer> contatto;
 	
 	
+	public Set<UtenteComputer> getContatto() {
+		return contatto;
+	}
+	public void setContatto(Set<UtenteComputer> contatto) {
+		this.contatto = contatto;
+	}
+
+
 	@Column(name="cognome")
 	private String cognome;
 	

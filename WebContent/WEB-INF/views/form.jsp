@@ -28,5 +28,19 @@
 	<input type="submit" value="invio">
 </form>
 
+<form action="regcomputer" method="post">
+
+	modello : <input type="text" name="modello" value=""><br>
+	
+	marca : <input type="text" name="marca" value=""><br>
+	
+	cpu : <input type="text" name="cpu" value=""><br>
+	
+	<input type="submit" value="invio">
+</form>
+
+
+
+
 </body>
 </html>

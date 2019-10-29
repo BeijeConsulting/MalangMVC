@@ -14,15 +14,18 @@ import javax.persistence.Table;
 @Table(name = "utente_computer")
 public class UtenteComputer {
 
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
+	
     @ManyToOne
     @JoinColumn(name = "id_computer")
     Computer computer;
  
+    
     @ManyToOne
     @JoinColumn(name = "id_utente")
     Contatto utenti;
@@ -36,11 +39,53 @@ public class UtenteComputer {
 	@Column(name="note")
 	private String note;
 	
+	public int getId() {
+		return id;
+	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
 
- 
+	public Computer getComputer() {
+		return computer;
+	}
 
-	
-	
+	public void setComputer(Computer computer) {
+		this.computer = computer;
+	}
+
+	public Contatto getUtenti() {
+		return utenti;
+	}
+
+	public void setUtenti(Contatto utenti) {
+		this.utenti = utenti;
+	}
+
+	public String getDataconsegna() {
+		return dataconsegna;
+	}
+
+	public void setDataconsegna(String dataconsegna) {
+		this.dataconsegna = dataconsegna;
+	}
+
+	public String getDatarestituzione() {
+		return datarestituzione;
+	}
+
+	public void setDatarestituzione(String datarestituzione) {
+		this.datarestituzione = datarestituzione;
+	}
+
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
+	}
+
 	
 }
