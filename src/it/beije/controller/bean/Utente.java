@@ -1,4 +1,4 @@
-package it.beije.model;
+package it.beije.controller.bean;
 
 
 public class Utente {
