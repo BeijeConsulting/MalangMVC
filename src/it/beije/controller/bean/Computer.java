@@ -1,10 +1,13 @@
 package it.beije.controller.bean;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -12,6 +15,41 @@ import javax.persistence.Table;
 @Table(name = "computer")
 public class Computer {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
+	private int id;	
+	
+	
+	@OneToMany(mappedBy = "computer")
+    Set<UtenteComputer> computer;
+	
+	
+	
+	@Column(name="modello")
+	private String modello;
+	
+	@Column(name="marca")
+	private String marca;
+	
+	@Column(name="cpu")
+	private String cpu;
+	
+	@Column(name="ram")
+	private int ram;
+	
+	@Column(name="hd")
+	private String hd;
+	
+	@Column(name="sn")
+	private String sn;
+	
+	@Column(name="note")
+	private String note;
+	
+	@Column(name="so")
+	private String so;
+	
 	
 	public int getId() {
 		return id;
@@ -85,34 +123,7 @@ public class Computer {
 		this.so = so;
 	}
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id;	
 	
-	@Column(name="modello")
-	private String modello;
-	
-	@Column(name="marca")
-	private String marca;
-	
-	@Column(name="cpu")
-	private String cpu;
-	
-	@Column(name="ram")
-	private int ram;
-	
-	@Column(name="hd")
-	private String hd;
-	
-	@Column(name="sn")
-	private String sn;
-	
-	@Column(name="note")
-	private String note;
-	
-	@Column(name="so")
-	private String so;
 	
 	public String toString() {
 		StringBuilder builder = new StringBuilder();

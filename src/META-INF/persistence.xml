@@ -4,6 +4,7 @@
 
 		<class>it.beije.controller.bean.Contatto</class>
 		<class>it.beije.controller.bean.Computer</class>
+		<class>it.beije.controller.bean.UtenteComputer</class>
 		
 
 		<properties>
