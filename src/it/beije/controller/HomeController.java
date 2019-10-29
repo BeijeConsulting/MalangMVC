@@ -20,32 +20,34 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 	
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String index(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("index Page Requested : " + request.getRequestURI());
+	@RequestMapping(value = "/newuser", method = RequestMethod.GET)
+	public String newUser(HttpServletRequest request, HttpServletResponse response) {
 
-		return "index";
+		return "newuser";
 	}
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String homepage(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("Home Page Requested, country = " + locale.getCountry());
-		System.out.println("Home Page Requested, language = " + locale.getLanguage());
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		String dataFormattato = dateFormat.format(date);
-
-		model.addAttribute("serverTime", dataFormattato);
 
 		return "home";
 	}
 
-	@RequestMapping(value = "/txt", method = RequestMethod.GET)
-	public void returnTXT(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		System.out.println("index Page Requested : " + request.getRequestURI());
+	@RequestMapping(value = "/newcomputer", method = RequestMethod.GET)
+	public String newComputer(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-		response.setContentType("text/plain");
-		response.getWriter().append("CIAO");
+	return "newcomputer";
+	}
+	
+	@RequestMapping(value = "/newassignment", method = RequestMethod.GET)
+	public String newAssignment(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+	return "newassignment";
+	}
+	
+	@RequestMapping(value = "/computerdot", method = RequestMethod.GET)
+	public String computerDot(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+	return "computerdot";
 	}
 
 }

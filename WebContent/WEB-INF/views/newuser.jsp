@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<jsp:useBean id="user" class="it.beije.controller.bean.Utente" scope="session" />
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -18,27 +19,20 @@
       <a class="navbar-brand" href="#">BeijeConsulting</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="home">Log In</a></li>
+      <li class="active"><a href="newuser">UTENTE</a></li>
     </ul>
   </div>
 </nav>
 <center>
+<%String cognome = user.getCognome() != null ? user.getCognome() : "";
+String nome = user.getNome() != null ? user.getNome() : "";
+String email = user.getEmail() != null ? user.getEmail() : ""; %>
 REGISTRA UTENTE: <br>
-<form action="newuser" method="get">
-	<input type="submit" value="FORM UTENTE">
-</form>
-REGISTRA COMPUTER: <br>
-<form action="newcomputer" method="get">
-	<input type="submit" value="FORM COMPUTER">
-</form>
-</form>
-ASSEGNA COMPUTER: <br>
-<form action="newassignment" method="get">
-	<input type="submit" value="ASSEGNA">
-</form>
-COMPUTER IN DOTAZIONE:<br>
-<form action="computerdot" method="get">
-	<input type="submit" value="MOSTRA">
+<form action="newuser" method="post">
+	COGNOME : <input type="text" name="param_cognome" value="<%= cognome %>"><br>
+	NOME : <input type="text" name="param_nome" value="<%= nome %>"><br>
+	EMAIL : <input type="text" name="param_email" value="<%= email %>"><br>
+	<input type="submit" value="INVIA">
 </form>
 </center>
 </body>

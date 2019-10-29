@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<jsp:useBean id="user" class="it.beije.controller.bean.Utente" scope="session" />
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -23,22 +24,10 @@
   </div>
 </nav>
 <center>
-REGISTRA UTENTE: <br>
-<form action="newuser" method="get">
-	<input type="submit" value="FORM UTENTE">
-</form>
-REGISTRA COMPUTER: <br>
-<form action="newcomputer" method="get">
-	<input type="submit" value="FORM COMPUTER">
-</form>
-</form>
-ASSEGNA COMPUTER: <br>
-<form action="newassignment" method="get">
-	<input type="submit" value="ASSEGNA">
-</form>
 COMPUTER IN DOTAZIONE:<br>
-<form action="computerdot" method="get">
-	<input type="submit" value="MOSTRA">
+<form action="computerdot" method="post">
+ID UTENTE: <input type="text" name ="param_id"><br>
+<input type="submit" value="MOSTRA"><br>
 </form>
 </center>
 </body>

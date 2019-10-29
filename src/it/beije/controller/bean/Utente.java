@@ -1,20 +1,24 @@
 package it.beije.controller.bean;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
-public class Contatto {
+public class Utente {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id;	
+	@Column(name="idusers")
+	private int idusers;	
 	
 	@Column(name="cognome")
 	private String cognome;
@@ -25,11 +29,27 @@ public class Contatto {
 	@Column(name="email")
 	private String email;
 	
-	public int getId() {
-		return id;
+	@OneToMany
+	@JoinColumn(name = "id_utente")
+	private List<Assignment> computer;
+	
+	public int getIdusers() {
+		return idusers;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setIdusers(int idusers) {
+		this.idusers = idusers;
+	}
+	public List<Assignment> getComputer() {
+		return computer;
+	}
+	public void setComputer(List<Assignment> computer) {
+		this.computer = computer;
+	}
+	public int getIdUsers() {
+		return idusers;
+	}
+	public void setIdUsers(int id) {
+		this.idusers = id;
 	}
 	
 	public String getCognome() {

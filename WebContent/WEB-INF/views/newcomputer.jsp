@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <jsp:useBean id="computer" class="it.beije.controller.bean.Computer" scope="session" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,27 +19,22 @@
       <a class="navbar-brand" href="#">BeijeConsulting</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="home">Log In</a></li>
+      <li class="active"><a href="newcomputer">COMPUTER</a></li>
     </ul>
   </div>
 </nav>
 <center>
-REGISTRA UTENTE: <br>
-<form action="newuser" method="get">
-	<input type="submit" value="FORM UTENTE">
-</form>
 REGISTRA COMPUTER: <br>
-<form action="newcomputer" method="get">
-	<input type="submit" value="FORM COMPUTER">
-</form>
-</form>
-ASSEGNA COMPUTER: <br>
-<form action="newassignment" method="get">
-	<input type="submit" value="ASSEGNA">
-</form>
-COMPUTER IN DOTAZIONE:<br>
-<form action="computerdot" method="get">
-	<input type="submit" value="MOSTRA">
+<form action="newcomputer" method="post">
+	MODELLO : <input type="text" name="param_modello" value=""><br>
+	MARCA : <input type="text" name="param_marca" value=""><br>
+	CPU : <input type="text" name="param_cpu" value=""><br>
+	RAM : <input type="text" name="param_ram" value=""><br>
+	HD : <input type="text" name="param_HD" value=""><br>
+	S/N : <input type="text" name="param_SN" value=""><br>
+	NOTE : <input type="text" name="param_note" value=""><br>
+	S.O. : <input type="text" name="param_SO" value=""><br>
+	<input type="submit" value="INVIA">
 </form>
 </center>
 </body>

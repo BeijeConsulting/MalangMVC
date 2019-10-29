@@ -1,51 +1,57 @@
 package it.beije.controller;
 
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+
 public class ControlloDati{
 
-public static String controlloTel(String telefono) {
-	int count=0;
-	if (telefono!="")
+public static boolean controlloDate(Date data1, Date data2) {
+	if(data1.compareTo(data2)>0)
 	{
-	if (telefono.charAt(0)=='+'||telefono.charAt(0)=='3')
-	{
-		for (int i=1; i<telefono.length();i++) {
-			for (char c='0'; c<='9';c++) {
-				char temp=telefono.charAt(i);
-				if (temp=='+') count++;
-				if (temp>'9' && temp!=' ' && temp!='+')
-				{
-					return null;
-				}
-			}
-		}
-		if(count>1) return null;
-		return telefono;
+		return false;
 	}
 	else
-	{
-		return null;
-	}
-	}
-	return null;
+		return true;
 }
 
-public static String controlloMail(String email){
-	email=email.trim();
-	int count=0;
-	int count2=0;
-	for (int i=0;i<email.length();i++) {
-		if (email.charAt(i)=='@') {
-			count++;
-			for(int j = 0 ; j<email.length(); j++) {
-				if(email.charAt(j)=='.') {
-					count2++;
-				}
-			}
-		}
-	}
-	if (count==1&&count2==1) return email;
+public static boolean controlloImpegno(int idpc,Date date1) throws ClassNotFoundException, SQLException{
+	Connection conn = ConnectionFactory.getConnection();
+	try {
+	Statement stmt = conn.createStatement();
+	String query="SELECT * FROM users_computer";
+	ResultSet rs = stmt.executeQuery(query);
+	System.out.println("connection ? " + !conn.isClosed());
+	int temp=0;
+	Date temp2 = null;
+	while (rs.next()) {
+	
+	 temp=(rs.getInt("id_computer"));
+	 temp2=(rs.getDate("restituzione"));
+	 if (temp==idpc) {
+		 if (temp2.compareTo(date1)<0) return true;
+		 conn.close();
+		 return false;
+	 }
 
-	else return null;
+	}
+	
+	rs.close();
+	
+} catch (SQLException sqlEx) {
+	sqlEx.printStackTrace();
+} finally {
+	try {
+		if (conn != null) conn.close();
+	} catch (SQLException ce) {
+		ce.printStackTrace();
+	}
+}
+	return true;
+	
 }
 
 public static String controlloNome(String nome) {
