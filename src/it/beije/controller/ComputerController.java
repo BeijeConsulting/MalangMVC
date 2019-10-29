@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.beije.controller.bean.Computer;
-import it.beije.controller.bean.Contatto;
 
 @Controller
 public class ComputerController {
