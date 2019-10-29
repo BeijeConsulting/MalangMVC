@@ -3,13 +3,15 @@
 	<persistence-unit name="MalangMVC">
 
 		<class>it.beije.controller.bean.Contatto</class>
+		<class>it.beije.controller.bean.Computer</class>
+		
+
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/malang?serverTimezone=CET"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/dbcomputer?serverTimezone=CET"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
-			<property name="javax.persistence.jdbc.password" value="beije06"/>
+			<property name="javax.persistence.jdbc.password" value="Beije06"/>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
-			<property name="javax.persistence.schema-generation.scripts.action" value="drop"/>
 		</properties>
 
 	</persistence-unit>

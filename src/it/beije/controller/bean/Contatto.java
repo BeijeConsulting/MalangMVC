@@ -22,9 +22,6 @@ public class Contatto {
 	@Column(name="nome")
 	private String nome;
 	
-//	@Column(name="telefono")
-//	private String telefono;
-	
 	@Column(name="email")
 	private String email;
 	
@@ -48,13 +45,6 @@ public class Contatto {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-//	public String getTelefono() {
-//		return telefono;
-//	}
-//	public void setTelefono(String telefono) {
-//		this.telefono = telefono;
-//	}
 	
 	public String getEmail() {
 		return email;

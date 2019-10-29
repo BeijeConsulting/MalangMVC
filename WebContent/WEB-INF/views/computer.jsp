@@ -4,13 +4,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>CONTATTO</title>
+<title>COMPUTER INSERITO</title>
 </head>
 <body>
-
-nome : ${contatto.nome}<br>
-cognome : ${contatto.cognome}<br>
-email : ${contatto.email}<br>
+modello : ${computer.modello}<br>
+marca : ${computer.marca}<br>
+cpu : ${computer.cpu}<br>
 
 
 </body>

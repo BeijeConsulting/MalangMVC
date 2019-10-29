@@ -16,7 +16,7 @@ public class ContattiController {
 		return "form";
 	}
 
-	@RequestMapping(value = "/form", method = RequestMethod.POST)
+	@RequestMapping(value = "/for", method = RequestMethod.POST)
 	public String postForm(@Validated Contatto contatto, Model model) {
 		System.out.println(contatto);
 		
