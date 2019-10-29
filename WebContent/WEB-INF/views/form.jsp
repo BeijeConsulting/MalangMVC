@@ -20,7 +20,9 @@
 <form action="form" method="post">
 
 	modello : <input type="text" name="modello" value=""><br>
+	
 	marca : <input type="text" name="marca" value=""><br>
+	
 	cpu : <input type="text" name="cpu" value=""><br>
 	
 	<input type="submit" value="invio">
