@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,37 +23,19 @@
     </ul>
   </div>
 </nav>
+<%String error = (String) request.getSession().getAttribute("error");
+if (error != null) {
+	out.print(error + "<br><br>");
+	request.getSession().removeAttribute("error");
+}
+%>
 <center>
-REGISTRA UTENTE: <br>
-<form action="newuser" method="get">
-	<input type="submit" value="FORM UTENTE">
-</form>
-REGISTRA COMPUTER: <br>
-<form action="newcomputer" method="get">
-	<input type="submit" value="FORM COMPUTER">
-</form>
-</form>
-ASSEGNA COMPUTER: <br>
-<form action="newassignment" method="get">
-	<input type="submit" value="ASSEGNA">
-</form>
-LE ASSEGNAZIONI:<br>
-<form action="computerdot" method="get">
-	<input type="submit" value="MOSTRA">
-</form>
-STORICO COMPUTER:<br>
-<form action="storico" method="get">
-	<input type="submit" value="MOSTRA">
-</form> <br><br><br><br>
-<form action="allpc" method="get">
-	<input type="submit" value="ALL PC">
-</form> <br>
-<form action="alluser" method="get">
-	<input type="submit" value="ALL USER">
-</form><br><br>
-RICERCA UTENTE:
-<form action="searchuser" method="get">
-	<input type="submit" value="CERCA">
+RICERCA UTENTE:<br>
+<form action="searchuser" method="post">
+COGNOME:<input type="text" name="param_cognome" placeholder="cognome"><br>
+NOME:<input type="text" name="param_nome" placeholder="nome"><br>
+EMAIL:<input type="text" name="param_email" placeholder="email"><br>
+<input type="submit" value="RICERCA">
 </form>
 </center>
 </body>

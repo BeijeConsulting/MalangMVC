@@ -60,6 +60,12 @@ public class HomeController {
 	return "storico";
 	}
 	
+	@RequestMapping(value = "/searchuser", method = RequestMethod.GET)
+	public String searchUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+	return "searchuser";
+	}
+	
 	@RequestMapping(value = "/allpc", method = RequestMethod.GET)
 	public String allPc(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
 	ArrayList<Computer> computers = ShowInfo.allPc();

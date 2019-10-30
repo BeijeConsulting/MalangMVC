@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import it.beije.controller.bean.Utente;
+
 
 public class ControlloDati{
 
@@ -68,5 +70,44 @@ public static String controlloCognome(String cognome) {
 	}
 	else
 		return cognome;
+}
+
+public static Utente searchUser(String cognome, String nome, String email) throws ClassNotFoundException, SQLException {
+	Connection conn = ConnectionFactory.getConnection();
+	Utente u = new Utente();
+	try {
+	Statement stmt = conn.createStatement();
+	String query="SELECT * FROM users";
+	ResultSet rs = stmt.executeQuery(query);
+	System.out.println("connection ? " + !conn.isClosed());
+	String nome1,cognome1,email1;
+	while (rs.next()) {
+	 nome1=(rs.getString("nome"));
+	 cognome1=(rs.getString("cognome"));
+	 email1=(rs.getString("email"));
+	 
+	 if (nome1.equalsIgnoreCase(nome)&&cognome1.equalsIgnoreCase(cognome)&&email1.equalsIgnoreCase(email)) {
+		 
+		 u.setCognome(cognome1);
+		 u.setNome(nome1);
+		 u.setEmail(email1);
+		 u.setIdUsers(rs.getInt("idusers"));
+		 break;
+	 }
+
+	}
+	
+	rs.close();
+} catch (SQLException sqlEx) {
+	sqlEx.printStackTrace();
+} finally {
+	try {
+		if (conn != null) conn.close();
+	} catch (SQLException ce) {
+		ce.printStackTrace();
+	}
+}
+if(u!=null) return u;
+else return null;	
 }
 }

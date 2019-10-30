@@ -100,6 +100,7 @@ public static ArrayList<Computer> allPc() throws IOException {
 			c.setId_computer(rs.getInt("idcomputer"));
 			c.setMarca(rs.getString("marca"));
 			c.setModello(rs.getString("modello"));
+			c.setCpu(rs.getString("cpu"));
 			c.setRam(rs.getInt("ram"));
 			c.set_HD(rs.getString("HD"));
 			c.set_SN(rs.getString("SN"));
