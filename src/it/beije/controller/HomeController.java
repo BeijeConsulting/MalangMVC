@@ -6,13 +6,19 @@ import java.sql.Statement;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,6 +28,8 @@ import it.beije.model.ConnectionFactory;
 
 @Controller
 public class HomeController {
+	
+	
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(HttpServletRequest request, HttpServletResponse response) {
@@ -63,11 +71,11 @@ public class HomeController {
 		cognome=request.getParameter("cognome")!=null?request.getParameter("cognome"):"";
 		email=request.getParameter("email")!=null?request.getParameter("email"):"";
 		telefono=request.getParameter("telefono")!=null?request.getParameter("telefono"):"";
-		Utente user=new Utente(nome,cognome,email,telefono);
+		/*Utente user=new Utente(nome,cognome,email,telefono);
 		request.getSession().setAttribute("userBean", user);
 		
 		if (user.isValid())
-			return "confirm";
+			return "confirm";*/
 		
 		return "login";
 	}
@@ -99,7 +107,6 @@ public class HomeController {
 //		}
 //		return "confirm?result=errore";
 //	}
-=======
 
 	@RequestMapping(value = "/txt", method = RequestMethod.GET)
 	public void returnTXT(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -109,5 +116,4 @@ public class HomeController {
 		response.getWriter().append("CIAO");
 	}
 
->>>>>>> refs/remotes/origin/master
 }

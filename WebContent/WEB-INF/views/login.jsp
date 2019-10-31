@@ -18,7 +18,7 @@
 	if (user!=null){
 		nome=user.getNome();
 		cognome=user.getCognome();
-		telefono=user.getTelefono();
+		//telefono=user.getTelefono();
 		email=user.getEmail();
 	}
 
