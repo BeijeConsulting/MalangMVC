@@ -16,7 +16,7 @@
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="prefix" value="/WEB-INF/views/" /> <!-- qui si dice alla macchima di partire dalla root quindi per far partire una jsp non bisogna mettere l'estenzione .jsp, ovvere mettere solo http://localhost:8080/MalangMVC/home (per esempio) -->
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 

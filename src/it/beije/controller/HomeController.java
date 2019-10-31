@@ -21,7 +21,7 @@ public class HomeController {
 	public String index(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("index Page Requested : " + request.getRequestURI());
 
-		return "index";
+		return "index"; // index  è la pagina jsp che deve essere mostrata
 	}
 	// Local, Model, request, response  sono i 4 parametri utilizzabili in homepage 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
