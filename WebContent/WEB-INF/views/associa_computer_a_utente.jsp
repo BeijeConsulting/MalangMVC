@@ -24,6 +24,6 @@ ${errore} ${successo}
     <a href="aggiungiutente"><input type="button" style="margin:5px;padding:5px; border-radius:5px; border:1px solid black;" value="Crea Nuovo Utente"></a>
     <a href="aggiungicomputer"><input type="button" style="margin:5px;padding:5px; border-radius:5px; border:1px solid black;" value="Crea Nuovo Computer"></a>
     <a href="associacomputer"><input type="button" style="margin:5px;padding:5px; border-radius:5px; border:1px solid black;" value="Associa Un Computer a Un Utente"></a></center>
-   
+
    </body>
 </html>
