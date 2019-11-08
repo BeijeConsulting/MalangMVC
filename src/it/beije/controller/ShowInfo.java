@@ -136,7 +136,7 @@ public static ArrayList<Utente> allUsers() throws IOException {
 		System.out.println("connection ? " + !conn.isClosed());
 		while (rs.next()) {
 			Utente u = new Utente();
-			u.setIdUsers(rs.getInt("idusers"));
+			u.setIdusers(rs.getInt("idusers"));
 			u.setCognome(rs.getString("cognome"));
 			u.setNome(rs.getString("nome"));
 			u.setEmail(rs.getString("email"));

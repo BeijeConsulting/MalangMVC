@@ -91,7 +91,7 @@ public static Utente searchUser(String cognome, String nome, String email) throw
 		 u.setCognome(cognome1);
 		 u.setNome(nome1);
 		 u.setEmail(email1);
-		 u.setIdUsers(rs.getInt("idusers"));
+		 u.setIdusers(rs.getInt("idusers"));
 		 break;
 	 }
 

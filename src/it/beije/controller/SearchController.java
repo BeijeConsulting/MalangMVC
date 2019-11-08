@@ -32,7 +32,7 @@ public class SearchController {
 			return "searchuser";
 		}
 		else {
-		int id=u.getIdUsers();
+		int id=u.getIdusers();
 		System.out.println(id);
 		System.out.println(u.getCognome() + u.getNome() + u.getEmail());
 		u.setComputer(ShowInfo.list(id));

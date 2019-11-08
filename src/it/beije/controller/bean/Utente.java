@@ -45,12 +45,6 @@ public class Utente {
 	public void setComputer(List<Assignment> computer) {
 		this.computer = computer;
 	}
-	public int getIdUsers() {
-		return idusers;
-	}
-	public void setIdUsers(int id) {
-		this.idusers = id;
-	}
 	
 	public String getCognome() {
 		return cognome;
