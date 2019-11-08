@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import it.beije.controller.bean.Contatto;
 
@@ -24,6 +25,24 @@ public class ContattiController {
 		//contatto oggetto crreato come parametro del metodo public String postFor
 		
 		return "contatto";// nome file contatto.jsp
+	}
+
+	@RequestMapping(value = "/sendparameter", method = RequestMethod.GET)
+	public String sendparameter() {
+		return "sendparameter";
+	}
+
+	@RequestMapping(value = "/getparameter", method = RequestMethod.POST)
+	public String getparameter(@RequestParam("param_stringa") String s,
+			@RequestParam("param_numero") int n,
+			Model model) {
+		System.out.println(s);
+		System.out.println(n);
+		
+		model.addAttribute("stringa", s);
+		model.addAttribute("numero", n);
+		
+		return "viewparams";
 	}
 
 }
