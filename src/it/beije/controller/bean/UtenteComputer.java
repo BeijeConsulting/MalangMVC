@@ -4,10 +4,14 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name = "utente_computer")
@@ -21,10 +25,16 @@ public class UtenteComputer {
 	
 	@Column(name="id_utente")
 	private int id_utente;
-	
+//	@ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "id_utente")
+//	private Contatto utente;
 	
 	@Column(name="id_computer")
 	private int id_computer;
+	
+//	@ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "id_computer")
+//	private Computer computer;
 	
 	@Column(name ="data_consegna")
 	private Date data_consegna;

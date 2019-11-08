@@ -9,9 +9,10 @@
 <h1 style="text-align:center;">REGISTRAZIONE UTENTE</h1>
 <body>
 
-<form action="formUtente" method="post">
+<form action="RegistrazioneController" method="post">
 	COGNOME	<input type="text" name="cognome" value=""><br><br>
 	NOME	<input type="text" name="nome" value=""><br><br>
+	TELEFONO <input type="text" name="telefono" value=""><br><br>
 	EMAIL  	<input type="text" name="email" value=""><br><br>
 	
 	<input type="submit" value="INVIA">

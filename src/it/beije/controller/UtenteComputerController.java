@@ -42,14 +42,14 @@ public class UtenteComputerController {
 			return "homepage"; // index  è la pagina jsp che deve essere mostrata
 			}
 	}
-	@RequestMapping(value = "/formUtente", method = RequestMethod.GET)
-	public String registra_computer(@Validated Contatto contatto, Model model) {
-		System.out.println(contatto);
-		//String registra_utente = request.getParameter("registra_utente"); 
-		model.addAttribute("contatto", contatto);
-		
-		return "formUtente";
-	}
+//	@RequestMapping(value = "/formUtente", method = RequestMethod.GET)
+//	public String registra_computer(@Validated Contatto contatto, Model model) {
+//		System.out.println(contatto);
+//		//String registra_utente = request.getParameter("registra_utente"); 
+//		model.addAttribute("contatto", contatto);
+//		
+//		return "formUtente";
+//	}
 
 	@RequestMapping(value = "/formComputer", method = RequestMethod.GET)
 	public String registra_computer(@Validated Computer computer, Model model) {
