@@ -18,7 +18,12 @@ public class ApiController {
 	public @ResponseBody Contatto test() {
 		System.out.println("TEST");
 
-		return new Contatto();
+		Contatto contatto;// = new Contatto();
+		
+		//leggo da db un contatto casuale
+		//popolo i dato in Contatto
+		
+		return contatto;
 	}
 
 	@RequestMapping(value = "/testpost", method = RequestMethod.POST,
