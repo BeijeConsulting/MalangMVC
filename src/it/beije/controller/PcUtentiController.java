@@ -1,6 +1,10 @@
 package it.beije.controller;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -12,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 
 import it.beije.controller.*;
 
@@ -71,23 +76,94 @@ public class PcUtentiController {
 	}
 	
 	@RequestMapping(value = "/PcToID", method = RequestMethod.GET)
-	public String PcToID(HttpServletRequest request, HttpServletResponse response) {
+	public String PcToID(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("index Page Requested : " + request.getRequestURI());
+		
+		String user = "";	
+		String computer = "";
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+			Connection connessione = DriverManager.getConnection("jdbc:mysql://localhost:3306/malang?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","Marcomattia1");
+			System.out.println(connessione.isValid(0));
+			Statement stmt = connessione.createStatement();
+	
+			String sql = "SELECT * FROM utenti";
+			ResultSet fetch = stmt.executeQuery(sql);
+			while(fetch.next()) {
+				
+				user = user+"<option value='"+fetch.getInt("id")+"'>"+fetch.getString("nome")+" "+fetch.getString("cognome")+"</option>";
+		
+			}
+	        model.addAttribute("utenti", "<form action='PcToID' method='post'>utente: <select id='ut' name='utente'>"+user+"</select><br>");
+
+			
+			
+			String sql1 = "SELECT * FROM computer";
+			ResultSet fetch1 = stmt.executeQuery(sql1);
+			while(fetch1.next()) {
+				computer = computer+"<option value='"+fetch1.getInt("id")+"'>"+fetch1.getString("marca")+" "+fetch1.getString("modello")+"</option>";
+		
+			}
+			model.addAttribute("computer", "computer: <select id='comp' name='computer'>"+computer+"</select><br>");
+		}catch(Exception e) {
+			
+		}
+		
+		model.addAttribute("messaggio","");
 
 		return "PcToID";
 	}
 	
 	@RequestMapping(value = "/PcToID", method = RequestMethod.POST)
-	public String PcToIDpost(HttpServletRequest request, HttpServletResponse response) {
+	public String PcToIDpost(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("index Page Requested : " + request.getRequestURI());
 		
-		String idutente = request.getParameter("idutente");
-		String idcomputer = request.getParameter("idcomputer");
+		String idutente = request.getParameter("utente");
+		String idcomputer = request.getParameter("computer");
 		String datadiconsegna = request.getParameter("datadiconsegna");
 		String datadirestituzione = request.getParameter("datadirestituzione");
 		String note = request.getParameter("note");
 		
+		String user = "";	
+		String computer = "";
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+			Connection connessione = DriverManager.getConnection("jdbc:mysql://localhost:3306/malang?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","Marcomattia1");
+			System.out.println(connessione.isValid(0));
+			Statement stmt = connessione.createStatement();
+	
+			String sql = "SELECT * FROM utenti";
+			ResultSet fetch = stmt.executeQuery(sql);
+			while(fetch.next()) {
+				
+				user = user+"<option value='"+fetch.getInt("id")+"'>"+fetch.getString("nome")+" "+fetch.getString("cognome")+"</option>";
+		
+			}
+	        model.addAttribute("utenti", "<form action='PcToID' method='post'>utente: <select id='ut' name='utente'>"+user+"</select><br>");
+
+			
+			
+			String sql1 = "SELECT * FROM computer";
+			ResultSet fetch1 = stmt.executeQuery(sql1);
+			while(fetch1.next()) {
+				computer = computer+"<option value='"+fetch1.getInt("id")+"'>"+fetch1.getString("marca")+" "+fetch1.getString("modello")+"</option>";
+		
+			}
+			model.addAttribute("computer", "computer: <select id='comp' name='computer'>"+computer+"</select><br>");
+		}catch(Exception e) {
+			
+		}
+
+		
+	
+	
+		
 		Utilities.toDB2(idutente, idcomputer, datadiconsegna,datadirestituzione,note);
+		
+		model.addAttribute("messaggio","<font color='blue'><b>dati associati!</b></font>");
 
 		return "PcToID";
 	}
