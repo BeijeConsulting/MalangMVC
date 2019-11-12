@@ -6,6 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import it.beije.controller.bean.Utente;
 
 
@@ -109,5 +113,12 @@ public static Utente searchUser(String cognome, String nome, String email) throw
 }
 if(u!=null) return u;
 else return null;	
+}
+
+public static Utente searchUser(int id) throws ClassNotFoundException, SQLException {
+	EntityManagerFactory factory = Persistence.createEntityManagerFactory("MalangMVC");
+	EntityManager entityManager = factory.createEntityManager();
+	Utente utente= entityManager.find(Utente.class, id);
+	return utente;
 }
 }
