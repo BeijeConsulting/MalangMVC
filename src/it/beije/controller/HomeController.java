@@ -23,7 +23,7 @@ public class HomeController {
 
 		return "index";
 	}
-
+	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String homepage(Locale locale, Model model, HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("Home Page Requested, country = " + locale.getCountry());
